@@ -39,9 +39,11 @@ const AddBooks = () => {
                 livres enregistrés ici
               </li>
             </ul>
+            <div className="d-flex justify-content-center">
+              <button className="btn btn-danger mt-4 mb-5">Effacer tous les livres</button>
+            </div>
           </div>
         </div>
-
       </div>
     </main>
   )
