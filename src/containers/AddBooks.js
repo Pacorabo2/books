@@ -31,6 +31,18 @@ const AddBooks = () => {
           </form>
         </div>
       </div>
+      <div className="container" style={{minHeight: '200px'}}>
+        <div className="row">
+          <div className="col-md-12">
+            <ul className="list-group">
+              <li className="list-group-item list-group-light d-flex justify-content-between">
+                livres enregistrés ici
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </main>
   )
 }
