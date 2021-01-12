@@ -31,6 +31,7 @@ const AddBooks = ({ libraryData, addBook }) => {
         <li key={data.id} className="list-group-item list-group-light d-flex justify-content-between">
           <span><strong>Titre: </strong> {data.title}</span>
           <span><strong>Auteur: </strong> {data.author}</span>
+          <span className="btn btn-danger">x</span>
         </li>
       )
     })
