@@ -16,7 +16,7 @@ const helperAddData = action => {
 
 // Reducer
 const reducerAddBooks = (state = inistialState.books, action) => {
-
+  
   if (localStorage.getItem('booksData')) {
     state = JSON.parse(localStorage.getItem('booksData'))
   }

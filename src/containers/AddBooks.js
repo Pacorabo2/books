@@ -5,7 +5,7 @@ import { addBook } from '../redux/actions/actionAddBooks';
 
 const AddBooks = ({ libraryData, addBook }) => {
 
-  console.log(libraryData);
+  // console.log(libraryData);
 
   const initialState = {
     title: '',
@@ -23,6 +23,18 @@ const AddBooks = ({ libraryData, addBook }) => {
     // Reset input
     setNewData(initialState);
   }
+
+  
+  const displaydata = libraryData.length > 0 ? 
+    libraryData.map(data => {
+      return (
+        <li key={data.id} className="list-group-item list-group-light d-flex justify-content-between">
+          <span><strong>Titre: </strong> {data.title}</span>
+          <span><strong>Auteur: </strong> {data.author}</span>
+        </li>
+      )
+    })
+  : <p className="text-center">Aucune donnée à afficher</p>
 
   return (
     <main role="main">
@@ -62,9 +74,7 @@ const AddBooks = ({ libraryData, addBook }) => {
         <div className="row">
           <div className="col-md-12">
             <ul className="list-group">
-              <li className="list-group-item list-group-light d-flex justify-content-between">
-                livres enregistrés ici
-              </li>
+              { displaydata }
             </ul>
             <div className="d-flex justify-content-center">
               <button className="btn btn-danger mt-4 mb-5">Effacer tous les livres</button>
