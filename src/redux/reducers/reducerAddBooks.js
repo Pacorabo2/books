@@ -16,14 +16,18 @@ const helperAddData = action => {
 
 // Reducer
 const booksReducer = (state = inistialState.books, action) => {
+
+  if (localStorage.setItem('booksData')) {
+    state = JSON.parse(localStorage.setItem('booksData'))
+  }
+
   switch (action.type) {
     case ADD_BOOKS:
       state = [...state, helperAddData(action)]
       localStorage.setItem('booksData', JSON.stringify(state))
       return state;
   
-    default:
-      break;
+    default: return state
   }
 }
 
