@@ -9,7 +9,12 @@ const AddBooks = () => {
   }
 
   const [newData, setNewData] = useState(initialState);
-  console.log(newData);
+ 
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(newData);
+  }
 
   return (
     <main role="main">
@@ -18,7 +23,7 @@ const AddBooks = () => {
           <h1 className="display-4">BOOKS</h1>
           <p>Ajouter un livre à votre bibliothèque</p>
 
-          <form className="form-inline justify-content-center">
+          <form className="form-inline justify-content-center" onSubmit={handleSubmit}>
             <div className="form-group">
               <input 
                 value={newData.title}
