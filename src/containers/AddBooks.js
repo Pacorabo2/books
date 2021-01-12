@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addBook } from '../redux/actions/actionAddBooks';
+import { addBook, deleteBook } from '../redux/actions/actionAddBooks';
 import FlipMove from 'react-flip-move';
 
 
-const AddBooks = ({ libraryData, addBook }) => {
+const AddBooks = ({ libraryData, addBook, deleteBook }) => {
 
   // console.log(libraryData);
 
@@ -33,7 +33,10 @@ const handleSubmit = e => {
             <li key={data.id} className="list-group-item list-group-light d-flex justify-content-between">
               <span><strong>Titre: </strong> {data.title}</span>
               <span><strong>Auteur: </strong> {data.author}</span>
-              <span className="btn btn-danger">x</span>
+              <span 
+                className="btn btn-danger"
+                onClick={ () => deleteBook(data.id) }
+                >x</span>
             </li>
           )
         })
@@ -102,7 +105,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addBook: param => dispatch(addBook(param))
+    addBook: param => dispatch(addBook(param)),
+    deleteBook: id => dispatch(deleteBook(id))
   }
 }
 
