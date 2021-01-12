@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react';
+
 
 const AddBooks = () => {
+
+  const initialState = {
+    title: '',
+    author: ''
+  }
+
+  const [newData, setNewData] = useState(initialState);
+  console.log(newData);
+
   return (
     <main role="main">
       <div className="jumbotron jumbotron-fluid">
@@ -11,18 +21,22 @@ const AddBooks = () => {
           <form className="form-inline justify-content-center">
             <div className="form-group">
               <input 
+                value={newData.title}
                 type="text" 
                 className="form-control"
                 placeholder="Titre du Livre"
                 required
+                onChange={e => setNewData({...newData, title:e.target.value})}
               />
             </div>
             <div className="form-group">
               <input 
+                value={newData.author}
                 type="text" 
                 className="form-control ml-3"
                 placeholder="Auteur"
                 required
+                onChange={e => setNewData({...newData, author:e.target.value})}
               />
             </div>
             <div className="form-group">
