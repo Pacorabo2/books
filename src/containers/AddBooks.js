@@ -7,22 +7,21 @@ const AddBooks = ({ libraryData, addBook }) => {
 
   // console.log(libraryData);
 
-  const initialState = {
-    title: '',
-    author: ''
-  }
+const initialState = {
+  title: '',
+  author: ''
+}
 
-  const [newData, setNewData] = useState(initialState);
+const [newData, setNewData] = useState(initialState);
  
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // console.log(newData);
-    addBook(newData);
-
-    // Reset input
-    setNewData(initialState);
-  }
+const handleSubmit = e => {
+  e.preventDefault();
+  // console.log(newData);
+  addBook(newData);
+  // Reset input
+  setNewData(initialState);
+}
 
   
   const displaydata = libraryData.length > 0 ? 
@@ -36,6 +35,11 @@ const AddBooks = ({ libraryData, addBook }) => {
       )
     })
   : <p className="text-center">Aucune donnée à afficher</p>
+
+  const deleteAllBooksBtn = libraryData.length > 0 && 
+      <div className="d-flex justify-content-center">
+        <button className="btn btn-danger mt-4 mb-5">Effacer tous les livres</button>
+      </div>
 
   return (
     <main role="main">
@@ -77,9 +81,7 @@ const AddBooks = ({ libraryData, addBook }) => {
             <ul className="list-group">
               { displaydata }
             </ul>
-            <div className="d-flex justify-content-center">
-              <button className="btn btn-danger mt-4 mb-5">Effacer tous les livres</button>
-            </div>
+            { deleteAllBooksBtn }
           </div>
         </div>
       </div>
