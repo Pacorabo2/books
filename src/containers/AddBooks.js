@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addBook } from '../redux/actions/actionAddBooks';
+import FlipMove from 'react-flip-move';
 
 
 const AddBooks = ({ libraryData, addBook }) => {
@@ -25,15 +26,19 @@ const handleSubmit = e => {
 
   
   const displaydata = libraryData.length > 0 ? 
-    libraryData.map(data => {
-      return (
-        <li key={data.id} className="list-group-item list-group-light d-flex justify-content-between">
-          <span><strong>Titre: </strong> {data.title}</span>
-          <span><strong>Auteur: </strong> {data.author}</span>
-          <span className="btn btn-danger">x</span>
-        </li>
-      )
-    })
+    <FlipMove>
+      {
+        libraryData.map(data => {
+          return (
+            <li key={data.id} className="list-group-item list-group-light d-flex justify-content-between">
+              <span><strong>Titre: </strong> {data.title}</span>
+              <span><strong>Auteur: </strong> {data.author}</span>
+              <span className="btn btn-danger">x</span>
+            </li>
+          )
+        })
+      }
+    </FlipMove>
   : <p className="text-center">Aucune donnée à afficher</p>
 
   const deleteAllBooksBtn = libraryData.length > 0 && 
