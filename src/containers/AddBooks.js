@@ -78,7 +78,7 @@ const AddBooks = ({ libraryData, addBook }) => {
 
 const mapStateToProps = state => {
   return {
-    libraryData: state.lirary
+    libraryData: state.library
   }
 }
 

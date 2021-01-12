@@ -8,4 +8,4 @@ const rootreducer = combineReducers({
 
 const store = createStore (rootreducer);
 
-export default store;
+export default store; 
