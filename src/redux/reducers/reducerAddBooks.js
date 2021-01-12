@@ -1,4 +1,4 @@
-import { ADD_BOOKS, DELETE_BOOK } from '../constants';
+import { ADD_BOOKS, DELETE_BOOK, DELETE_ALL_BOOKS } from '../constants';
 import { v4 as uuiv4 } from 'uuid';
 
 const inistialState = {
@@ -29,14 +29,19 @@ const reducerAddBooks = (state = inistialState.books, action) => {
   switch (action.type) {
     case ADD_BOOKS:
       state = [...state, helperAddData(action)]
-      localStorage.setItem('booksData', JSON.stringify(state))
+      localStorage.setItem('booksData', JSON.stringify(state)) // Maj du local storage
       return state;
 
     case DELETE_BOOK:
       state = removeDataById(state, action.payload);
       localStorage.setItem('booksData', JSON.stringify(state))
       return state;
-  
+
+    case DELETE_ALL_BOOKS:
+      state = []
+      localStorage.setItem('booksData', JSON.stringify(state))
+      return state 
+
     default: return state
   }
 }
