@@ -1,4 +1,5 @@
 import {FETCH_BOOKS_LOADING, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_ERROR} from '../constants';
+import axios from 'axios';
 
 
 const fetchBooksLoading = () => {
@@ -20,3 +21,21 @@ const fetchBooksError = error => {
     payload: error
   }
 }
+
+const GOOGLE_API_KEY = 'AIzaSyDH2o5LvRIUD9WbazCCjvPU2KhgGFA4Fw8';
+
+export const fetchBooks = title => {
+  return dispatch => {
+
+    dispatch(fetchBooksLoading())
+
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}&key=${GOOGLE_API_KEY}&maxResults=20`)
+    .then( res => {
+      console.log(res)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+}
+
