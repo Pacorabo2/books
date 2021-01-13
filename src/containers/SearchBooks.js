@@ -6,27 +6,21 @@ const SearchBooks = () => {
       <div className="jumbotron jumbotron-fluid">
         <div className="container text-center">
           <h1 className="display-4">BOOKS</h1>
-          <p>Ajouter un livre à votre bibliothèque</p>
+          <p>Indiquez le sujet du livre à rechercher sur Google API</p>
 
           <form className="form-inline justify-content-center">
             <div className="form-group">
               <input 
                 type="text" 
                 className="form-control"
-                placeholder="Titre du Livre"
+                placeholder="Quoi rechercher ?"
                 required
               />
             </div>
             <div className="form-group">
-              <input 
-                type="text" 
-                className="form-control ml-3"
-                placeholder="Auteur"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <button className="btn btn-outline-secondary ml-3">Ajouter un livre</button>
+              <button 
+                className="btn btn-outline-secondary ml-3"
+              >Rechercher</button>
             </div>
           </form>
         </div>
