@@ -25,6 +25,30 @@ const SearchBooks = () => {
           </form>
         </div>
       </div>
+
+      <div className="container" style={{minHeight: '200px'}}>
+        <div className="accordion">
+          <div className="card mb-2">
+            <div className="card-header">
+            
+            </div>
+            <div className="collapse" data-parent="accordion">
+              <div className="car-body">
+                {
+                  /** 
+                   * Image
+                   * Titre
+                   * Auteu
+                   * Description
+                   * Btn plus d'infos
+                   * Btn Enregistrer
+                  */
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   )
 }
