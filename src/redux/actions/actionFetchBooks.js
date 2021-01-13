@@ -31,10 +31,12 @@ export const fetchBooks = title => {
 
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}&key=${GOOGLE_API_KEY}&maxResults=20`)
     .then( res => {
-      console.log(res)
+
+      const bookItemsArray = res.data.items
+      dispatch(fetchBooksSuccess(bookItemsArray))
     })
     .catch(error => {
-      console.log(error)
+      dispatch(fetchBooksError(error.message))
     })
   }
 }

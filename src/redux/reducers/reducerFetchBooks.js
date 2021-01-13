@@ -14,6 +14,22 @@ const reducerFetchedBooks = (state= initialState, action) => {
         ...state,
         isLoading: true,
       }
+    
+      case FETCH_BOOKS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        fetchedBooks: action.payload,
+        error: ''
+      }
+      
+      case FETCH_BOOKS_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        fetchedBooks: [],
+        error: action.payload
+      }
   
     default: return state
   }
