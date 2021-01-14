@@ -46,7 +46,11 @@ const SearchBooks = () => {
             </div>
             <div id={ data.id } className="collapse" data-parent="accordion">
               <div className="car-body">
-                <img src={ data.volumeInfo.imageLinks.thumbnail } alt={ data.volumeInfo.title }/>
+                {
+                  data.volumeInfo.hasOwnProperty('imageLinks') && 
+                  <img src={ data.volumeInfo.imageLinks.thumbnail } alt={ data.volumeInfo.title }/>
+                }
+                
 
                 <br/>
                 <h4 className="card-title">Titre: { data.volumeInfo.title }</h4>
