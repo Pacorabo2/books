@@ -44,7 +44,7 @@ const SearchBooks = () => {
                   </button>
                 </h5>
             </div>
-            <div id={ data.id } className="collapse" data-parent="accordion">
+            <div id={ data.id } className="collapse" data-parent="#accordion">
               <div className="car-body">
                 {
                   data.volumeInfo.hasOwnProperty('imageLinks') && 
@@ -63,7 +63,7 @@ const SearchBooks = () => {
                   href={data.volumeInfo.previewLink}
                   >
                 Plus d'infos</a>
-                <button className="bnt btn-outline-secondary">Enregistrer</button>
+                <button className="btn btn-outline-secondary ml-3">Enregistrer</button>
               </div>
            </div>
           </div>
@@ -104,7 +104,7 @@ const SearchBooks = () => {
       </div>
 
       <div className="container" style={{minHeight: '200px'}}>
-        <div className="accordion">
+        <div id="accordion">
           { displayFetchedBooks }
         </div>
       </div>
