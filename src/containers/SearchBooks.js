@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBooks } from '../redux/actions/actionFetchBooks';
 import { addBook } from '../redux/actions/actionAddBooks';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// Toast config
+toast.configure();
 
 const SearchBooks = () => {
 
@@ -21,6 +26,7 @@ const SearchBooks = () => {
   const handleSave = (title, author) => {
     const booToSave = { title, author }
     dispatch(addBook(booToSave))
+    toast.info('Livre enregistré', { position: toast.POSITION.BOTTOM_RIGHT })
   }
 
   const displayFetchedBooks = state.isLoading ? (
