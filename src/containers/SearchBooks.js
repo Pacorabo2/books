@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBooks } from '../redux/actions/actionFetchBooks';
+import { addBook } from '../redux/actions/actionAddBooks';
 
 const SearchBooks = () => {
 
@@ -15,6 +16,11 @@ const SearchBooks = () => {
     e.preventDefault();
     // console.log(title)
     dispatch(fetchBooks(title))
+  }
+
+  const handleSave = (title, author) => {
+    const booToSave = { title, author }
+    dispatch(addBook(booToSave))
   }
 
   const displayFetchedBooks = state.isLoading ? (
@@ -63,7 +69,9 @@ const SearchBooks = () => {
                   href={data.volumeInfo.previewLink}
                   >
                 Plus d'infos</a>
-                <button className="btn btn-outline-secondary ml-3">Enregistrer</button>
+                <button 
+                  className="btn btn-outline-secondary ml-3"
+                  onClick={() => handleSave(data.volumeInfo.title, data.volumeInfo.authors)}>Enregistrer</button>
               </div>
            </div>
           </div>
